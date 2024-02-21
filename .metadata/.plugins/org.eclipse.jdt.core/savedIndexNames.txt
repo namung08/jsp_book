@@ -1,5 +1,0 @@
-INDEX VERSION 1.134+E:\kiccampus\a\jsp_book\.metadata\.plugins\org.eclipse.jdt.core
-4148588245.index
-3393163731.index
-1865797976.index
-1553398.index
