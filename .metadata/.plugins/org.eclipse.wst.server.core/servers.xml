@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/chap01-config" deployDir="wtpwebapps" hostname="localhost" id="chap01" name="chap01" runtime-id="apache-tomcat-10.1.18" server-type="org.eclipse.jst.server.tomcat.101" server-type-id="org.eclipse.jst.server.tomcat.101" start-timeout="60" stop-timeout="15" testEnvironment="true" timestamp="2">
+    <list key="modules" value0="part01::org.eclipse.jst.jee.server:part01::jst.web::5.0"/>
+  </server>
+</servers>
