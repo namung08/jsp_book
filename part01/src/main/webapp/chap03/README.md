@@ -85,3 +85,25 @@
    >  - JSP 코드에서 중복되는 것을 모듈화 하거나 스크립트 코드를 사용할 때 발생하는 소스 코드의 복잡함을 없애기 위해서 사용
    >  - 액션 태그와 다른점이 있다면 개발자가 직접 개발해 주어야 한다.
   - if-else 조건문 그리고 for 구문과 같은 반복 처리를 커스텀 태그를 이용하여 구현 가능
+
+## 03 page 디렉티브
+ - 작성 예
+ ```jsp
+ <%@ page contentType="text/htmll; charset=utf-8"%>
+ <%@ page import="java.util.Date"%>
+ ```
+ - page 디렉티브의 주요 속성
+> | 속성 | 설명 | 기본값 |
+> |------|------|------|
+> |contentType|JSP가 생성할 문서의 MIME 타입과 캐릭터 인코딩을 지정한다.|text/html|
+> |import|JSP 페이지에서 사용할 자바 클래스를 지정한다.||
+> |session|JSP 페이지가 세션을 사용할지의 여부를 지정한다.<br>"none"일 경우 출력 버퍼를 사용하지 않으며, "8kb"라고 입력한 경우 8킬로바이트 크기의 출력 버퍼를 사용한다.|최소 8kb|
+> |autoFlush|출력 버퍼가 다 찼을 경우 자동으로 버퍼에 있는 데이터를 출력 스트림에 보내고 비울지 여부를 나타낸다.<br>"true"인 경우 버퍼의 내용을 웹 부라우저에 보낸 후 버퍼를 비우며, "false"인 경우 에러를 발생시킨다.||
+> |info|JSP 페이지에 대한 설명을 입력한다.||
+> |errorPage|JSP 페이지를 실행하는 도중에 에러가 발생할 때 보여줄 페이지를 지정한다.||
+> |isErrorPage|현재 페이지가 에러를 발생될 때 보여주는 페이지인지의 여부를 지정한다.<br> "true"일 경우 에러 페이지이며, "false"일 경우 에러 페이지가 아니다.|false|
+> |pageEncoding|JSP 페이지 소스 코드의 캐릭터 인코딩을 지정한다.||
+> |isELIgnored|"treu"일 경우 표현 언어를 해석하지 않고 문자열로 처리하며, "false"일 경우 표현 언어를 지원한다.|false|
+> |deferredSysntaxAllowedAsLiteral|#{ 문자가 문자열 값으로 사용되는 것을 혀용할지의 여부를 지정한다.|false|
+> |trimDirectiveWhitespaces|출력 결과에서 템플릿 텍스트의 공백 문자를 제거할지의 여부를 지정한다.|false|
+### 03.1 contentType 속성과 캐릭터 셋
