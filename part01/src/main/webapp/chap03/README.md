@@ -114,3 +114,21 @@
       ```jsp
       <%@  page contentType="text/xml %>
       ```
+ - 인코딩을 올바르게 입력하지 않아 글자가 올바르게 출력이 되지 않은 예
+ ```jsp
+<%@page import="java.util.Date"%>
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>현재시간</title>
+</head>
+<body>
+	<%Date now = new Date(); %>
+	현재시각 : <%= now %>
+</body>
+</html>
+ ```
+ `결과 : í˜„ìž¬ì‹œê° : Thu Feb 22 17:26:20 KST 2024`<br>
+ `해결 방법 : charset=iso-8859-1 -> charset=utf-8`
