@@ -107,3 +107,10 @@
 > |deferredSysntaxAllowedAsLiteral|#{ 문자가 문자열 값으로 사용되는 것을 혀용할지의 여부를 지정한다.|false|
 > |trimDirectiveWhitespaces|출력 결과에서 템플릿 텍스트의 공백 문자를 제거할지의 여부를 지정한다.|false|
 ### 03.1 contentType 속성과 캐릭터 셋
+ - contentType 속성은 JSP 페이지가 생성할 문서의 타입을 지정한다.
+ - UTF-8 캐릭터 셋을 이용하는 XML 문서를 생성
+   -> MIME 타입   : "text/xml"
+      charset     : "UTF-8"
+      ```jsp
+      <%@  page contentType="text/xml %>
+      ```
