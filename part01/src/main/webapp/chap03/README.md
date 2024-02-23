@@ -77,6 +77,7 @@
   </html>
   ```
   - 액션 태그는 <jsp:액션태그이름>의 형태를 띠며 액션 태그 종류에 따라 서로 다른 속성과 값을 가짐
+  
  #### 태그 라이브러리
   - JSTL(JavaServer Pages Standard Tag Library)
   - 커스텀 태그 중에서 자주 사용하는 것들을 별도로 표준화한 태그 라이브러리
@@ -107,6 +108,7 @@
 > |isELIgnored|"treu"일 경우 표현 언어를 해석하지 않고 문자열로 처리하며, "false"일 경우 표현 언어를 지원한다.|false|
 > |deferredSysntaxAllowedAsLiteral|#{ 문자가 문자열 값으로 사용되는 것을 혀용할지의 여부를 지정한다.|false|
 > |trimDirectiveWhitespaces|출력 결과에서 템플릿 텍스트의 공백 문자를 제거할지의 여부를 지정한다.|false|
+
 ### 03.1 contentType 속성과 캐릭터 셋
  - contentType 속성은 JSP 페이지가 생성할 문서의 타입을 지정한다.
  - UTF-8 캐릭터 셋을 이용하는 XML 문서를 생성
@@ -134,6 +136,7 @@
  ```
  `결과 : í˜„ìž¬ì‹œê° : Thu Feb 22 17:26:20 KST 2024`<br>
  `해결 방법 : charset=iso-8859-1 -> charset=utf-8`
+
 ### 03.2 import 속성
  - JSP는 page 디렉티브의 import 속성을 사용해서 JSP 코드에서 클래스의 단순 이름을 사용할 수 있다.
   > ```jsp
@@ -188,3 +191,40 @@
 </body>
 </html>
  ```
+
+### 03.4 JSP 페이지의 인코딩과 pageEncoding 속성
+ - JSP 파일을 읽을 때는 page 디렉티브의 pageEncoding 속성과 conetentType 속성을 사용해서 캐릭터 인코딩을 결정한다.
+
+## 04 스크립트 요소
+ ### 04.1 스크립트릿
+  - JSP 페이지에서 자바 코드를 실행할 때 사용하는 코드 블록
+  ```jsp
+  <%
+   자바코드1;
+   자바코드2;
+   자바코드3;
+   ...
+  %>
+  ```
+[1~10까지의 합](oneToTen.jsp)
+  ```jsp
+  <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1~10까지의 합</title>
+</head>
+<body>
+	<%
+		int sum = 0;
+		for(int i=1;i<=10;i++) {
+			sum += i;
+		}
+	%>
+	1~10까지의 합은 <%= sum %> 입니다.
+</body>
+</html>
+  ```
+  
