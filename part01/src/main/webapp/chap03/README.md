@@ -132,3 +132,5 @@
  ```
  `결과 : í˜„ìž¬ì‹œê° : Thu Feb 22 17:26:20 KST 2024`<br>
  `해결 방법 : charset=iso-8859-1 -> charset=utf-8`
+### 03.2 import 속성
+ - 
