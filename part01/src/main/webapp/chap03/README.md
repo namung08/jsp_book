@@ -167,3 +167,24 @@
 </body>
 </html>
   ```
+
+### 03.3 trimDirectiveWhitespaces 속성을 이용한 공백처리
+ - [현재 시간](../chap02/time.jsp)을 실행 한 뒤 브라우저에서 소스 보기를 해 보면 첫 줄에 빈 줄이 생성이 된다. 이 부분은 page 디렉티브가 있던 위치에서 만들어진 것이다.
+ - trimDirectiveWhitespaces 속성을 이용하면 불필요하게 생성되는 줄바꿈 공백 문자를 제거할 수 있다.
+ 
+ [현재 시각](time.jsp)
+ ```jsp
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="EUC-KR"%>
+<%@ page trimDirectiveWhitespaces="true" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>지금 시간</title>
+</head>
+<body>
+현재 : <%= new java.util.Date() %>
+</body>
+</html>
+ ```
