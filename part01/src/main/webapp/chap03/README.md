@@ -1,11 +1,12 @@
 # chapter03 JSP로 시작하는 웹 프로그래밍
 ## 01 JSP에서 HTML 문서를 생성하는 기본 코드 구조
-`chap03/default.jsp`
  - 01행     : 설정 부분 -> JSP 페이지에 대한 설정 정보
   > JSP 페이지가 생성하는 문서의 타입(종류)<br>
   > JSP 페이지에서 사용할 커스텀 태그<br>
   > JSP 페이지에서 사용할 자바 클래스 지정<br>
  - 02-16행  : 생성부분  -> HTML 코드 및 JSP 스크립트
+
+ [HTML 문서의 제목](default.jsp)
 ```jsp
 <!-- 이 코드는 JSP 페이지가 생성할 문서가 HTML이며 java 언어를 사용, 문서의 캐릭터 셋(character set)이 UTF-8인 것을 나타낸다. -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -115,6 +116,7 @@
       <%@  page contentType="text/xml %>
       ```
  - 인코딩을 올바르게 입력하지 않아 글자가 올바르게 출력이 되지 않은 예
+[현재시간](invalidCharset.jsp)
  ```jsp
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=iso-8859-1"%>
@@ -133,4 +135,35 @@
  `결과 : í˜„ìž¬ì‹œê° : Thu Feb 22 17:26:20 KST 2024`<br>
  `해결 방법 : charset=iso-8859-1 -> charset=utf-8`
 ### 03.2 import 속성
- - 
+ - JSP는 page 디렉티브의 import 속성을 사용해서 JSP 코드에서 클래스의 단순 이름을 사용할 수 있다.
+  > ```jsp
+  > <%@ page import = "java.util.Calendar" %>
+  > <%@ page import = "java.util.Date" %>
+  > ```
+ - import 속성 값으로 여러 타입을 지정할 수 있다.
+  > ```jsp
+  > <%@ page import = "java.util.Calendar, java.util.Date" %>
+  > ```
+  [Calendar 클래스 사용](useImportCalendar.jsp)
+  ```jsp
+<%@page import="java.util.Calendar"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calendar 클래스 사용</title>
+</head>
+<body>
+	<%
+		Calendar cal = Calendar.getInstance();
+	%>
+	오늘은
+	<%= cal.get(Calendar.YEAR) %>년
+	<%= cal.get(Calendar.MONTH)+1 %>월
+	<%= cal.get(Calendar.DAY_OF_MONTH) %>일
+	입니다.
+</body>
+</html>
+  ```
