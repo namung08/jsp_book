@@ -150,7 +150,7 @@
   [Calendar 클래스 사용](useImportCalendar.jsp)
   ```jsp
 <%@page import="java.util.Calendar"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -207,7 +207,7 @@
   %>
   ```
 [1~10까지의 합](oneToTen.jsp)
-  ```jsp
+```jsp
   <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -233,8 +233,9 @@
    <%= 값%>
    ```
    - 표현식은 '<%=>' 로 시작해서 '%>' 로 끝남
+   
 [1~10까지의 합](oneToTen2.jsp)
-   ```jsp
+```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -250,3 +251,37 @@
 </body>
 </html>
    ```
+
+### 04.3 선언부
+```jsp
+<%!
+  public 리턴타입 메서드이름(파라미터목록) {
+    자바코드1;
+    자바코드2;
+    ...
+    자바코드n;
+    return 값;
+  }
+%>
+```
+ - [선언부를 사용하여 두 정수의 곱을 계산해주는 예](useDecl.jsp)
+```jsp
+<%@page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%!
+public int multiply(int a, int b) {
+	int c = a * b;
+	return c;
+}
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>선언부를 사용한 두 정수값의 곱</title>
+</head>
+<body>
+10 * 25 = <%= multiply(10, 25) %>
+</body>
+</html>
+```
