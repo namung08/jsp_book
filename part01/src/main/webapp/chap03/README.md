@@ -331,3 +331,38 @@ public int multiply(int a, int b) {
 </body>
 </html>
 ```
+### 05.2 요청 파라미터 처리
+ - HTML 폼의 각 입력 요소는 이름을 갖는다. 이름 입력을 위한 `<input>` 태그의 name 속성은 "name" 이고 주소 입력을 위한 `<input>` 태그의 name 속성은 "address"인데, name 속성의 값이 입력 요소의 이름이 된다.
+ #### 05.2.2 request 기본 객체의 요청 파라미터 관련 메소드
+  - request 기본 객체는 웹 브라우저가 전송한 파라미터를 읽어올 수 있는 메서드를 제공하고 있다.
+
+  |메서드|리턴 타입|설명|
+  |-----|-----|-----|
+  |getParameter(String name)|String|이름이 name인 파라미터의 값을 구한다. 존재하지 않을 경우 null을 리턴한다|
+  |getParameterValues(String name)|String[]|이름이 name인 모든 파라미터의 값을 배열로 구한다. 존재하지 않을 경우 null을 리턴한다|
+  |getParameterNames()|java.util.Enumeration|웹 브라우저가 전송한 파라미터의 이름 목록을 구한다|
+  |getParameterMap()|java.util.Map|웹 브라우저가 전송한 파라미터의 맵을 구한다. 맵은 <파라미터 이름, 값> 쌍으로 구성된다|
+ - [파라미터 전송을 위한 폼](form.jsp)
+ ```jsp
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>폼 생성</title>
+</head>
+<body>
+<form action="/chap03/viewParameter.jsp" method="post">
+	이름 : <input type="text" name="name" size="10"> <br>
+	주소 : <input type="text" name="address" size="30"> <br>
+	좋아하는 동물 : 
+		<input type="checkbox" name="pet" value="dog">강아지
+		<input type="checkbox" name="pet" value="cat">고양이
+		<input type="checkbox" name="pet" value="pig">돼지
+	<br>
+	<input type="submit" value="전송">
+</form> 
+</body>
+</html>
+```
